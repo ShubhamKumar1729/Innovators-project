@@ -1,0 +1,200 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+.vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.vid video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html, body, .flexbox {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: black;
+  font-family: Raleway, sans-serif;
+  font-size: x-large;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-box {
+  background-color:rgba(89, 179, 193, 0.8);
+  margin: 20px;
+  width: 100vw;
+  height: 85vh;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  .chat-box-header {
+    width: 100%;
+    padding: 10px;
+    border-bottom: solid 1px #cfcfcf;
+
+  }
+.chat-box-body {
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    display: flex;
+    #chat_messages {
+      width: 100%;
+      padding:10px ;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      .message {
+        width: 80%;
+        padding: standard-padding;
+        margin: 2px 0;
+        overflow: hidden;
+        border-radius: standard-radius;
+        transition: height 0.3s ease-in-out;
+      }
+      .my-message {
+        color: #fff;
+        background-color: #006ae3;
+        align-self: flex-end;
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .other-message {
+        background-color: #e2e2e2;
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .profile {
+        margin: 2px 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        
+        img {
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+          vertical-align: middle;
+          border-radius: 50%;
+        }
+      }
+      .my-profile {
+        color: font-color-muted;
+        align-self: flex-end;
+      }
+      .other-profile {
+        color: font-color-muted;
+      }
+    }
+  }
+  #typing {
+    color: font-color-muted;
+    width: 100%;
+    height: 0;
+    padding: 0 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: 0.3s height ease-in-out, 0.3s opacity ease-in-out;
+    &.active {
+      height: 80px;
+      opacity: 1;
+    }
+    span:not(.n) {
+      background-color: font-color-muted;
+      width: 10px;
+      height: 10px;
+      margin-top: 20px;
+      display: inline-block;
+      border-radius: 50%;
+      &:nth-child(1) {
+        animation: typing 1.2s infinite;
+      }
+      &:nth-child(2) {
+        animation: typing 1.2s infinite 0.1s;
+      }
+      &:nth-child(3) {
+        animation: typing 1.2s infinite 0.2s;
+      }
+    }
+  }
+  > .chat-box-footer {
+    width: 100%;
+    padding: standard-padding;
+    border-top: solid 1px #cfcfcf;
+    box-sizing: border-box;
+    display: flex;
+    > #chat_input {
+      color: font-color;
+      font-family: Raleway, sans-serif;
+      font-size: font-size;
+      background-color: #d2d2d2;
+      width: 100%;
+      height: 40px;
+      max-height: 120px;
+      border: none;
+      padding: 10px 15px;
+      resize: none;
+      box-sizing: border-box;
+      border-radius: standard-radius;
+      transition: 0.3s background-color;
+      &:focus {
+        background-color: #efefef;
+      }
+    }
+    > #send {
+      background: none;
+      border: none;
+      margin-left: 10px;
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+}
+
+@keyframes typing {
+  0% { transform: translateY(0px); }
+  33.3333% { transform: translateY(-5px); }
+  66.6667% { transform: translateY(5px); }
+  100% { transform: translateY(0px); }
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button {
+  outline: none;
+}
+
+h3 > small {
+  color: font-color-muted;
+  font-weight: normal;
+}
