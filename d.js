@@ -90,9 +90,7 @@ async function fetchChatGPTResponse(userInput) {
 
     // if (data.choices && data.choices.length > 0) {
       return data.candidates[0].content.parts[0].text.trim();
-    // } else {
-    //   return 'Sorry, I couldn’t process your request.';
-    // }
+   
   } catch (error) {
     return 'Sorry, there was an error connecting to the server.';
   }
